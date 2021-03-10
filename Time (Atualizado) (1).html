@@ -162,9 +162,9 @@
 
                     /*Nota-se que se o dia atual for feriado e domingo ao mesmo tempo, vai somente mostrar que hoje é feriado!*/
                 } else if(hora !== 0 && condFer == false && diaSemana > 0) { //---> Se for uma hora diferente e o dia atual não for feriado, nem domingo
-                    if(hora == 8) { //---> Se chegar 8 horas da manhã
+                    if(hora == 14) { //---> Se chegar 14 horas
                         changeStatus(0, 1)
-                    } else if(hora == 22) { //---> Se chegar 22 horas
+                    } else if(hora == 23) { //---> Se chegar 23 horas
                         if(condFer2 == true) { //---> Se o dia de amanhã for feriado
                             changeStatus(1, 4)
                         } else if(diaSemana == 6) { //---> Se hoje é sábado (logo amanhã é domingo)
@@ -183,21 +183,21 @@
 
             let newVetor
             let numM
-            if(hora >= 14 && hora <= 23 && condFer == false && diaSemana > 0) { //---> Se o dia atual não for feriado, nem domingo, e a hora estiver entre 8 e 21 (ambos inclusive)
+            if(hora >= 14 && hora <= 22 && condFer == false && diaSemana > 0) { //---> Se o dia atual não for feriado, nem domingo, e a hora estiver entre 14 e 22 (ambos inclusive)
                 newVetor = m1Func(0)
                 numM = 1
-            } else { //---> Os casos excedentes: Se o dia atual não for feriado, nem domingo, mas a hora for menor que 8 ou maior que 21, OU o dia atual for feriado e/ou domingo
+            } else { //---> Os casos excedentes: Se o dia atual não for feriado, nem domingo, mas a hora for menor que 14 ou maior que 22, OU o dia atual for feriado e/ou domingo
                 newVetor = m1Func(1)
                 if(condFer == true) { //---> Se hoje é feriado
                     numM = 5
                 } else if(diaSemana == 0) { //---> Se hoje é domingo
                     numM = 3
                 } else { //---> Se hoje não é feriado, nem domingo
-                    if(hora >= 23 && condFer2 == true) { //---> Se passou das 22 horas e amanhã é feriado
+                    if(hora >= 23 && condFer2 == true) { //---> Se passou das 23 horas e amanhã é feriado
                         numM = 4
-                    } else if(hora >= 23 && diaSemana == 6) { //---> Se passou das 22 horas e amanhã é domingo
+                    } else if(hora >= 23 && diaSemana == 6) { //---> Se passou das 23 horas e amanhã é domingo
                         numM = 2
-                    } else { //---> Se for antes das 8 horas OU passou das 22 horas e amanhã não é feriado, nem domingo
+                    } else { //---> Se for antes das 14 horas OU passou das 23 horas e amanhã não é feriado, nem domingo
                         numM = 1
                     }
                 }
